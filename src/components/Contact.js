@@ -3,11 +3,16 @@ import PropTypes from "prop-types";
 
 export default class Contact extends Component {
     static propTypes = {
-        contact: PropTypes.object.isRequired
+        contact: PropTypes.object.isRequired,
+        deleteClickhandler: PropTypes.func.isRequired
     };
 
     state = {
-        showContactInfo: true
+        showContactInfo: false
+    };
+
+    onDeleteClick = () => {
+        this.props.deleteClickhandler();
     };
 
     render() {
@@ -25,6 +30,12 @@ export default class Contact extends Component {
                             });
                         }}
                         className="fas fa-sort-down"
+                        style={{ cursor: "pointer" }}
+                    />
+                    <i
+                        className="fas fa-times float-right"
+                        style={{ cursor: "pointer", color: "red" }}
+                        onClick={this.onDeleteClick}
                     />
                 </h4>
                 {showContactInfo ? (
