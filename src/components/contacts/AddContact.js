@@ -7,6 +7,12 @@ export default class AddContact extends Component {
         phone: ""
     };
 
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
     render() {
         const { name, email, phone } = this.state;
 
@@ -24,6 +30,7 @@ export default class AddContact extends Component {
                                 name="name"
                                 id="name"
                                 value={name}
+                                onChange={this.onChange}
                             />
                         </div>
                         <div className="form-group">
@@ -35,6 +42,7 @@ export default class AddContact extends Component {
                                 name="email"
                                 id="email"
                                 value={email}
+                                onChange={this.onChange}
                             />
                         </div>
                         <div className="form-group">
@@ -46,6 +54,7 @@ export default class AddContact extends Component {
                                 name="phone"
                                 id="phone"
                                 value={phone}
+                                onChange={this.onChange}
                             />
                         </div>
                         <input
