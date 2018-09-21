@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
+import TextInputGroup from "../layout/TextInputGroup";
 import uuid from "uuid";
 
 export default class AddContact extends Component {
@@ -52,42 +53,31 @@ export default class AddContact extends Component {
                                         dispatch
                                     )}
                                 >
-                                    <div className="form-group">
-                                        <label htmlFor="name">Name</label>
-                                        <input
-                                            type="text"
-                                            className="form-control form-contorl-lg"
-                                            placeholder="Enter Name..."
-                                            name="name"
-                                            id="name"
-                                            value={name}
-                                            onChange={this.onChange}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="email">Email</label>
-                                        <input
-                                            type="email"
-                                            className="form-control form-contorl-lg"
-                                            placeholder="Enter Email..."
-                                            name="email"
-                                            id="email"
-                                            value={email}
-                                            onChange={this.onChange}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="phone">Phone</label>
-                                        <input
-                                            type="text"
-                                            className="form-control form-contorl-lg"
-                                            placeholder="Enter Phone Number..."
-                                            name="phone"
-                                            id="phone"
-                                            value={phone}
-                                            onChange={this.onChange}
-                                        />
-                                    </div>
+                                    <TextInputGroup
+                                        label="Name"
+                                        placeholder="Enter Name..."
+                                        value={name}
+                                        onChange={this.onChange}
+                                        name="name"
+                                        id="name"
+                                    />
+                                    <TextInputGroup
+                                        label="Email"
+                                        placeholder="Enter Email..."
+                                        value={email}
+                                        onChange={this.onChange}
+                                        name="email"
+                                        id="email"
+                                        type="email"
+                                    />
+                                    <TextInputGroup
+                                        label="Phone"
+                                        placeholder="Enter Phone..."
+                                        value={phone}
+                                        onChange={this.onChange}
+                                        name="phone"
+                                        id="phone"
+                                    />
                                     <input
                                         type="submit"
                                         value="Add Contact"
