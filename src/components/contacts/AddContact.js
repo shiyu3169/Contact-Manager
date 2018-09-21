@@ -26,6 +26,13 @@ export default class AddContact extends Component {
         };
 
         dispatch({ type: "ADD_CONTACT", payload: newContact });
+
+        // Clear State
+        this.setState({
+            name: "",
+            email: "",
+            phone: ""
+        });
     };
 
     render() {
