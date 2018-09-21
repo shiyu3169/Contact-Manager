@@ -1,19 +1,25 @@
 import React, { Component } from "react";
 
 export default class AddContact extends Component {
+    state = {
+        name: "",
+        email: "",
+        phone: ""
+    };
+
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
     onSubmit = e => {
         e.preventDefault();
         console.log(this.state);
     };
 
-    static defaultProps = {
-        name: "Fred Smith",
-        email: "fread@yahoo.com",
-        phone: "777-777-7777"
-    };
-
     render() {
-        const { name, email, phone } = this.props;
+        const { name, email, phone } = this.state;
 
         return (
             <div className="card mb-3">
@@ -28,7 +34,8 @@ export default class AddContact extends Component {
                                 placeholder="Enter Name..."
                                 name="name"
                                 id="name"
-                                defaultValue={name}
+                                value={name}
+                                onChange={this.onChange}
                             />
                         </div>
                         <div className="form-group">
@@ -39,7 +46,8 @@ export default class AddContact extends Component {
                                 placeholder="Enter Email..."
                                 name="email"
                                 id="email"
-                                defaultValue={email}
+                                value={email}
+                                onChange={this.onChange}
                             />
                         </div>
                         <div className="form-group">
@@ -50,7 +58,8 @@ export default class AddContact extends Component {
                                 placeholder="Enter Phone Number..."
                                 name="phone"
                                 id="phone"
-                                defaultValue={phone}
+                                value={phone}
+                                onChange={this.onChange}
                             />
                         </div>
                         <input
