@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Consumer } from "../../context";
 import axios from "axios";
 import { Link } from "react-router-dom";
 export default class Contact extends Component {
@@ -29,7 +28,7 @@ export default class Contact extends Component {
         const { showContactInfo } = this.state;
 
         return (
-            <Consumer>
+            <div>
                 {value => {
                     const { dispatch } = value;
                     return (
@@ -79,7 +78,7 @@ export default class Contact extends Component {
                         </div>
                     );
                 }}
-            </Consumer>
+            </div>
         );
     }
 }

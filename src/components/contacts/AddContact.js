@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
 import axios from "axios";
 
@@ -71,7 +70,7 @@ export default class AddContact extends Component {
         const { name, email, phone, errors } = this.state;
 
         return (
-            <Consumer>
+            <div>
                 {value => {
                     const { dispatch } = value;
                     return (
@@ -122,7 +121,7 @@ export default class AddContact extends Component {
                         </div>
                     );
                 }}
-            </Consumer>
+            </div>
         );
     }
 }

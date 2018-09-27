@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import Contact from "./Contact";
-import { Consumer } from "../../context";
 
 export default class Contacts extends Component {
     render() {
         return (
-            <Consumer>
+            <div>
                 {value => {
                     const { contacts } = value;
                     return (
@@ -20,7 +19,7 @@ export default class Contacts extends Component {
                         </React.Fragment>
                     );
                 }}
-            </Consumer>
+            </div>
         );
     }
 }
