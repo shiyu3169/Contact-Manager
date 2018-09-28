@@ -1,26 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 import { Link } from "react-router-dom";
-export default class Contact extends Component {
-    static propTypes = {
-        contact: PropTypes.object.isRequired
-    };
+import { connect } from "react-redux";
+import { deleteContact } from "../../actions/contactActions";
 
+class Contact extends Component {
     state = {
         showContactInfo: false
     };
 
-    onDeleteClick = async (id, dispatch) => {
-        try {
-            await axios.delete(
-                `https://jsonplaceholder.typicode.com/users/${id}`
-            );
-            dispatch({ type: "DELETE_CONTACT", payload: id });
-        } catch (e) {
-            // Only for jsonplaceholder. Not neccessary for real back end data
-            dispatch({ type: "DELETE_CONTACT", payload: id });
-        }
+    onDeleteClick = id => {
+        this.props.deleteContact(id);
     };
 
     render() {
@@ -68,8 +58,12 @@ export default class Contact extends Component {
     }
 }
 
-// Contact.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   email: PropTypes.string.isRequired,
-//   phone: PropTypes.string.isRequired
-// };
+Contact.propTypes = {
+    contact: PropTypes.object.isRequired,
+    deleteContact: PropTypes.func.isRequired
+};
+
+export default connect(
+    null,
+    { deleteContact }
+)(Contact);
